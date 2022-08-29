@@ -4,20 +4,11 @@ import java.io.*;
 
 class main {        // This should be all that is in your main.java file.
 	public static void main(String args[]) throws FileNotFoundException {
-        BBoard x = new BBoard("menu");   // Feel free to change the name.
-        User y = new User();
-        Topic t = new Topic();
-         
-       
-      x.loadUsers(args[0]);
-        x.login(); 
-        y.check();
-        x.run();
-
-
-        
-        
-    
+        BBoard myBoard = new BBoard("Poole's Amazing BBoard");          // Feel free to change the name.
+        myBoard.loadUsers(args[0]);
+        myBoard.run();
+        myBoard.login();
+        myBoard.run();
 
         // Feel free to add code for testing purposes. 
 

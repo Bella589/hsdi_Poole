@@ -35,55 +35,36 @@ public class BBoard {
 	
 	String c;
 	
-	String name;
-	String user;
-	
 	
 	int messNum;
-
 	String mess;
-	
 	 ArrayList <String> m = new ArrayList<String>();
 	 ArrayList <String> nt = new ArrayList<String>();
 
-	 ArrayList<message> message = new Arraylist<message>();
-	 ArrayList<user> user1 = new ArrayList<user>();
-	 ArrayList<user> cuser = new ArrayList<user>();
-
-	
+	private ArrayList<String> user1 = new ArrayList<String>();
 
 	
 	public BBoard() {
-		message = null;
+		
+		// System.out.println("----------------------------------------------");
+		// System.out.println("Message 1:");
+	 //   System.out.println("----------------------------------------------");
+
 		
 	}
 
 	// Same as the default constructor except it sets the title of the board
 	public BBoard(String ttl) {	
-		Name = ttl;
-		user1 = null;
-		message = null;
-		cuser = null;	
+			System.out.print(ttl);
 	}
 
 	// Gets a filename of a file that stores the user info in a given format (users.txt)
 	// Opens and reads the file of all authorized users and passwords
 	// Constructs a User object from each name/password pair, and populates the userList ArrayList.
 		public void loadUsers(String inputFile) throws FileNotFoundException {
-			File x  = new File(inputFile);
-			Scannar s = new Scannar(file);
-			String curntusr;
-			String uname;
-			String passw;
-			user cuser1; // i don't know if this will work..???
-			
-			while (x.hasNext()){
-			curntusr = read.nextLine();
-			int b = current.indexOf(" ");
-			uname = current.substring(0, b);
-			passw = current.substring(b+1);
-			cuser1 = new user (uname, passw);
-			user1.add(cuser1);		
+			// user1.add(new File(users.txt));
+			while (sc.hasNext()){
+			 user1.add(sc.next());
 			}
 				
 
@@ -95,54 +76,20 @@ public class BBoard {
 	// If not, it will keep asking until a match is found or the user types 'q' or 'Q' as username to quit
 	// When the users chooses to quit, sayu "Bye!" and return from the login function
 	public void login(){
-			boolean x = false;
-	
-		while(true){	
-			Scanner y = new Scanner(System.in);
-			System.out.println("Username: ");
-			String usr3 = read.nextLine();
-			
-			if(usr3.equals("q") || usr3.equals("Q")){
-				System.out.println("Bye!");
-				break;
-			}			
-			
-			System.out.println("Password: ");
-			String pswd = read.nextLine();
-
-			
-			for(int y = 0; y<user1.size(); y++){
-				boolean tru = false;
-				tru = user1.get(y).check(usr3,pswd);
-				if(istrue==true){
-					cuser = userList.get(y);
-					System.out.println("Current User: " + cuser);
-					x = true;
-					break;
-				}
-			}
-			
-			if(x == true){
-				break;
-			}
-			else{
-				System.out.println("take the L. ur username and/or password is wronG ");
-			}
-		
-		// System.out.println("What is your user name");
-		// 	 name = sc.nextLine();
-		// System.out.print("What is your password");
-		// 	 pass = sc.nextLine();
+		System.out.println("What is your user name");
+			 name = sc.nextLine();
+		System.out.print("What is your password");
+			 pass = sc.nextLine();
 		
 
-		// if(name.equals(user1)){
-		// 	System.out.println("U logged in succesfully");
-		// }
+		if(name.equals(user1)){
+			System.out.println("User or password is wrong");
+		}
 		
-		// else{
-		// 	System.out.print("user and or pass is wrong ");
-		// }
-		// 	login();
+		else{
+			System.out.print("Logged in succesfully");
+		}
+			login();
 		
 	}
 	
@@ -182,18 +129,8 @@ public class BBoard {
 				String newTopic = sc.nextLine();
 			nt.add(newTopic);
 		}
-		else if (in.equals("Q") || in.equals("q")){
-				cuser = null;
-				System.out.println("Bye Bye!");
-			}
-			
-			else if {
-				System.out.println(".... idk what u typed, but its not the option. retry plz");
-				run();
-			}
-			else{
-			System.out.println("ma bro u didnt log in re run it again ;=;");
-			
+		if((q.equals("q"))||(q.equals("Q"))){
+			System.out.print("You ended succesfully.");
 		}
 		
 
@@ -203,15 +140,8 @@ public class BBoard {
 	// It will then be the responsibility of the Topic object to invoke the print function recursively on its own replies
 	// The BBoard display function will ignore all reply objects in its message list
 	private void display(){
-		Message mess1 = new Message();
-
-
-	for(int i = 0; i<messageList.size(); i++){
-			mess1 = messageList.get(i);
-			
-			if(mess1.isReply() == false){
-				mess1.print(0);
-			}
+		System.out.print(newTopic);
+		System.out.print(message);
 		
 	}
 
@@ -231,18 +161,8 @@ public class BBoard {
 	// Once the Topic has been constructed, add it to the messageList
 	// This should invoke your inheritance of Topic to Message
 	private void addTopic(){
-	Scanner in = new Scanner(System.in);
-		
-		System.out.println("topic: ");
-		String topic = in.nextLine();
-		
-		System.out.println("mesage: ");
-		String message1 = in.nextLine();		
-		
-		int y = messageList.size();
-		String author= cuser.getUsername();
-		
-		Topic T = new Topic(author,sub,bod,y);
+		System.out.print("You chose topic, please create one");
+			String T = sc.nextLine();
 			
 	}
 
@@ -301,9 +221,9 @@ public class BBoard {
 		if((c.equals("yes")||(c.equals("Yes")))){
 			System.out.print("What do you want to change your password to?");
 			String passs = sc.nextLine();
-			passs = pass; 
+			passs = pass;
 		}
+		
 	}
-	}
-	}
+
 }
