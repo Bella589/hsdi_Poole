@@ -9,9 +9,8 @@ class main {        // This should be all that is in your main.java file.
         Topic t = new Topic();
          
        
-      x.loadUsers(args[0]);
+        x.loadUsers(args[0]);
         x.login(); 
-        y.check();
         x.run();
 
 

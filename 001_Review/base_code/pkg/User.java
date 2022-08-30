@@ -46,8 +46,8 @@ public class User {
 		if(usr.equals("")){
 			return false;
 		}
-		if(oldpass.equals(pass)){
-			pass = newPass;
+		if(oldpass.equals(pwd)){
+			pwd = newPass;
 			return true;
 		}
 		else{

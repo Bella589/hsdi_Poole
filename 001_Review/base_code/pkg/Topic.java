@@ -10,6 +10,10 @@ ArrayList <String> childList = new ArrayList<String>();
 		String body;
 		int id;
 		
+		String auth;
+		String subj;
+		String bod;
+		
 	// Default Constructor
 	public Topic() {
 		auth= subj=bod = "";
@@ -21,7 +25,7 @@ ArrayList <String> childList = new ArrayList<String>();
 	public Topic(String auth, String subj, String bod, int i) {
 		childList = new ArrayList<>();
 		author = auth;
-		body = bdy;
+		body = bod;
 		subject = subj;
 		id = i;
 	}

@@ -8,24 +8,26 @@ public class Message {
 		String subject;
 		String body;
 		int id;
+		
+		String auth;
+		String subj;
+		String bod;
+		int i;
 
-	// Default Constructor
-	public Message() {
-		auth= subj=bod = "";
-		id = -1;
-	}
+
 	
 	// Parameterized Constructor
 	public Message(String auth, String subj, String bod, int i) {
 		childList = new ArrayList<>();
 		author = auth;
-		body = bdy;
+		body = bod;
 		subject = subj;
 		id = i;
 		
-		
-		
-		
+	}
+		public Message() {
+		auth = subj = bod = "";
+		id = -1;
 	}
 
 	// This function is responsbile for printing the Message
@@ -39,7 +41,7 @@ public class Message {
 	public void print(int indentation){
 		System.out.println("----------------------------------------");
 			System.out.print("message #" + id + " " + subj +"from:" + auth);
-			System.out.print("     Body:" + bdy);
+			System.out.print("     Body:" + bod);
 		System.out.println("----------------------------------------");
 
 

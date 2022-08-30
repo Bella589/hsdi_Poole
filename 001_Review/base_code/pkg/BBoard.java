@@ -34,10 +34,7 @@ public class BBoard {
 	String newTopic;
 	
 	String c;
-	
-	String name;
 	String user;
-	
 	
 	int messNum;
 
@@ -46,23 +43,23 @@ public class BBoard {
 	 ArrayList <String> m = new ArrayList<String>();
 	 ArrayList <String> nt = new ArrayList<String>();
 
-	 ArrayList<message> message = new Arraylist<message>();
-	 ArrayList<user> user1 = new ArrayList<user>();
-	 ArrayList<user> cuser = new ArrayList<user>();
+	 ArrayList<Message> message1 = new ArrayList<Message>();
+	 ArrayList<User> user1 = new ArrayList<User>();
+	 ArrayList<User> cuser = new ArrayList<User>();
 
 	
 
 	
 	public BBoard() {
-		message = null;
+		message1 = null;
 		
 	}
 
 	// Same as the default constructor except it sets the title of the board
 	public BBoard(String ttl) {	
-		Name = ttl;
+		name = ttl;
 		user1 = null;
-		message = null;
+		message1 = null;
 		cuser = null;	
 	}
 
@@ -71,11 +68,11 @@ public class BBoard {
 	// Constructs a User object from each name/password pair, and populates the userList ArrayList.
 		public void loadUsers(String inputFile) throws FileNotFoundException {
 			File x  = new File(inputFile);
-			Scannar s = new Scannar(file);
+			Scanner s = new Scanner(x);
 			String curntusr;
 			String uname;
 			String passw;
-			user cuser1; // i don't know if this will work..???
+			User cuser1; // i don't know if this will work..???
 			
 			while (x.hasNext()){
 			curntusr = read.nextLine();
@@ -98,7 +95,7 @@ public class BBoard {
 			boolean x = false;
 	
 		while(true){	
-			Scanner y = new Scanner(System.in);
+			// Scanner y = new Scanner(System.in);
 			System.out.println("Username: ");
 			String usr3 = read.nextLine();
 			
@@ -108,7 +105,7 @@ public class BBoard {
 			}			
 			
 			System.out.println("Password: ");
-			String pswd = read.nextLine();
+			String pswd = sc.nextLine();
 
 			
 			for(int y = 0; y<user1.size(); y++){
@@ -145,6 +142,7 @@ public class BBoard {
 		// 	login();
 		
 	}
+}
 	
 	// Contains main loop of Bulletin Board
 	// IF and ONLY IF there is a valid currentUser, enter main loop, displaying menu items
@@ -170,8 +168,8 @@ public class BBoard {
 		
 		if((r.equals("r")||(r.equals("R")))){
 			System.out.print("what is your message?");
-				 message = sc.nextLine();
-			 m.add(message);
+				 message1 = sc.nextLine();
+			 m.add(message1);
 		}
 		
 		if((d.equals("D")||(d.equals("d")))){
@@ -182,15 +180,15 @@ public class BBoard {
 				String newTopic = sc.nextLine();
 			nt.add(newTopic);
 		}
-		else if (in.equals("Q") || in.equals("q")){
+		else if ((q.equals("Q") || (q.equals("q")))){
 				cuser = null;
 				System.out.println("Bye Bye!");
 			}
 			
-			else if {
-				System.out.println(".... idk what u typed, but its not the option. retry plz");
-				run();
-			}
+			// else if(){
+			// 	System.out.println(".... idk what u typed, but its not the option. retry plz");
+			// 	run();
+			// }
 			else{
 			System.out.println("ma bro u didnt log in re run it again ;=;");
 			
@@ -206,15 +204,15 @@ public class BBoard {
 		Message mess1 = new Message();
 
 
-	for(int i = 0; i<messageList.size(); i++){
-			mess1 = messageList.get(i);
+	for(int i = 0; i< message1.size(); i++){
+			mess1 = message1.get(i);
 			
 			if(mess1.isReply() == false){
 				mess1.print(0);
 			}
 		
 	}
-
+}
 
 	// This function asks the user to create a new Topic (i.e. the first message of a new discussion "thread")
 	// Every Topic includes a subject (single line), and body (single line)
@@ -239,8 +237,8 @@ public class BBoard {
 		System.out.println("mesage: ");
 		String message1 = in.nextLine();		
 		
-		int y = messageList.size();
-		String author= cuser.getUsername();
+		int y = message1.size();
+		String auth= cuser.getUsername();
 		
 		Topic T = new Topic(author,sub,bod,y);
 			
@@ -278,9 +276,9 @@ public class BBoard {
 	private void addReply(){
 		System.out.print("What messsage do you want to reply to?");
 			messNum = sc.nextInt();
-		System.out.print("What is your message")
+		System.out.print("What is your message");
 		
-		System.out.println("Re:" + newTopic + message + messnum + mess ".");
+		System.out.println("Re:" + newTopic + message1 + messnum + mess + ".");
 
 	}
 
@@ -304,6 +302,6 @@ public class BBoard {
 			passs = pass; 
 		}
 	}
+	
 	}
-	}
-}
+	
