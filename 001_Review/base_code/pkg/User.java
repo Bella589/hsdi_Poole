@@ -6,6 +6,7 @@ public class User {
 	Scanner sc = new Scanner(System.in);
 	String usr;
 	String pwd;
+	String oldpass;
 	
 	// Creates a User with empty name and password.
 	public User() {
@@ -29,10 +30,10 @@ public class User {
 	// Note that, even with a User with empty name and password, this is actually a valid User object (it is the default User), 
 	// This function must still return false if given an empty username string.  
 	public boolean check(String usrr, String psd){
-       if(this.usr.equals(usr) && this.psd.equals(psd)){
+       if((this.usr.equals(usr)) && (pwd.equals(psd))){
        	return true;
        }
-       if(usr.equals("") && psd.equals("")){
+       if(usr.equals("") && pwd.equals("")){
        	return false;
        }
        

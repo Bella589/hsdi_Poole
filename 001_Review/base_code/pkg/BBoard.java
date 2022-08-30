@@ -39,6 +39,9 @@ public class BBoard {
 	int messNum;
 
 	String mess;
+	String bod;
+	String author;
+	String sub;
 	
 	 ArrayList <String> m = new ArrayList<String>();
 	 ArrayList <String> nt = new ArrayList<String>();
@@ -67,19 +70,19 @@ public class BBoard {
 	// Opens and reads the file of all authorized users and passwords
 	// Constructs a User object from each name/password pair, and populates the userList ArrayList.
 		public void loadUsers(String inputFile) throws FileNotFoundException {
-			File x  = new File(inputFile);
-			Scanner s = new Scanner(x);
+			
+			Scanner s = new Scanner(new File(inputFile));
 			String curntusr;
 			String uname;
 			String passw;
-			User cuser1; // i don't know if this will work..???
+			User cuser1; 
 			
-			while (x.hasNext()){
-			curntusr = read.nextLine();
-			int b = current.indexOf(" ");
-			uname = current.substring(0, b);
-			passw = current.substring(b+1);
-			cuser1 = new user (uname, passw);
+			while (s.hasNextLine()){
+		//	cuser = sc.nextLine("");
+		//	int b = sc.indexOf();
+			uname = sc.substring(0, b);
+			passw = sc.substring(b+1);
+			cuser1 = cuser (uname, passw);
 			user1.add(cuser1);		
 			}
 				
@@ -97,7 +100,7 @@ public class BBoard {
 		while(true){	
 			// Scanner y = new Scanner(System.in);
 			System.out.println("Username: ");
-			String usr3 = read.nextLine();
+			String usr3 = sc.nextLine();
 			
 			if(usr3.equals("q") || usr3.equals("Q")){
 				System.out.println("Bye!");
@@ -111,7 +114,7 @@ public class BBoard {
 			for(int y = 0; y<user1.size(); y++){
 				boolean tru = false;
 				tru = user1.get(y).check(usr3,pswd);
-				if(istrue==true){
+				if( true == true){
 					cuser = userList.get(y);
 					System.out.println("Current User: " + cuser);
 					x = true;
@@ -168,7 +171,7 @@ public class BBoard {
 		
 		if((r.equals("r")||(r.equals("R")))){
 			System.out.print("what is your message?");
-				 message1 = sc.nextLine();
+			 m = sc.nextLine();
 			 m.add(message1);
 		}
 		
@@ -238,7 +241,7 @@ public class BBoard {
 		String message1 = in.nextLine();		
 		
 		int y = message1.size();
-		String auth= cuser.getUsername();
+		String auth= cuser.loadUsers();
 		
 		Topic T = new Topic(author,sub,bod,y);
 			
@@ -278,7 +281,7 @@ public class BBoard {
 			messNum = sc.nextInt();
 		System.out.print("What is your message");
 		
-		System.out.println("Re:" + newTopic + message1 + messnum + mess + ".");
+		System.out.println("Re:" + newTopic + message1 + messNum + mess + ".");
 
 	}
 

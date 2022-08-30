@@ -17,12 +17,12 @@ public class Message {
 
 	
 	// Parameterized Constructor
-	public Message(String auth, String subj, String bod, int i) {
+	public Message(String auth, String subj, String bod, int id) {
 		childList = new ArrayList<>();
-		author = auth;
-		body = bod;
-		subject = subj;
-		id = i;
+		this.auth = auth;
+		this.bod = bod;
+		this.subj = subj;
+		this.id = id;
 		
 	}
 		public Message() {
@@ -40,21 +40,27 @@ public class Message {
 	// if it's 2, indent by 4 spaces, etc. 
 	public void print(int indentation){
 		System.out.println("----------------------------------------");
+		indent(indentation);
 			System.out.print("message #" + id + " " + subj +"from:" + auth);
 			System.out.print("     Body:" + bod);
 		System.out.println("----------------------------------------");
 
 
 	}
+	private void indent(int indentation){
+		for(int i = 0; i< indentation *2; i++){
+			System.out.print(" ");
+		}
+	}
 
 	// Default function for inheritance
 	public boolean isReply(){
-		
+		return false;
 	}
 
 	// Returns the subject String
 	public String getSubject(){
-		return n;
+		return subj;
 		
 	} 
 
