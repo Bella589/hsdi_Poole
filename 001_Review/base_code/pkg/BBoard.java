@@ -80,10 +80,10 @@ public class BBoard {
 			while (s.hasNextLine()){
 		//	cuser = sc.nextLine("");
 		//	int b = sc.indexOf();
-			uname = sc.substring(0, b);
-			passw = sc.substring(b+1);
-			cuser1 = cuser (uname, passw);
-			user1.add(cuser1);		
+			// uname = sc.substring(0, b);
+			// passw = sc.substring(b+1);
+			// cuser1 = cuser (uname, passw);
+			// user1.add(cuser1);		
 			}
 				
 
@@ -115,7 +115,7 @@ public class BBoard {
 				boolean tru = false;
 				tru = user1.get(y).check(usr3,pswd);
 				if( true == true){
-					cuser = userList.get(y);
+					cuser = user1.get(y);
 					System.out.println("Current User: " + cuser);
 					x = true;
 					break;
@@ -171,7 +171,7 @@ public class BBoard {
 		
 		if((r.equals("r")||(r.equals("R")))){
 			System.out.print("what is your message?");
-			 m = sc.nextLine();
+			 String m = sc.nextLine(" ");
 			 m.add(message1);
 		}
 		
